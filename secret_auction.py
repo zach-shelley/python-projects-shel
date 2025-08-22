@@ -1,5 +1,10 @@
-print('Welcome to the secret auction program.')
+import random
 
+items_list = ['four Wheeler', 'week cruise vacation', 'new MAC laptop', 'surfing class' ]
+
+print('Welcome to the secret auction program.')
+bidding_item = random.choice(items_list)
+print(f'Next up, you will be bidding for a {bidding_item}')
 
 bidder_auctions = {}
 
