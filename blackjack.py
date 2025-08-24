@@ -7,7 +7,6 @@ want_to_play = True
 while want_to_play:
     play_game = input('Do you want to play a game of Blackjack? Type "y" or "n"').lower()
     if play_game == 'y':
-        print(art.logo)
         want_to_play = False
     elif play_game == 'n':
         print('Next time')
@@ -25,7 +24,7 @@ def hit():
     print(f'Player total = {sum(player_cards)} Computer total = {sum(computer_cards)}')
 
     while sum(player_cards) < 21:
-            hit_or_stay = input('Type "y" to get another card, type "n" to stay: ')
+            hit_or_stay = input('Type "y" to hit, type "n" to stay: ')
             if hit_or_stay == 'y':
                 new_player_card = random.choice(cards)
                 player_cards.append(new_player_card)
@@ -71,10 +70,7 @@ while game_on:
 
     hit()
 
-
-
     if sum(player_cards) > 21:
-
 
         print(f'You are at {sum(player_cards)} - Bust! You lose')
 
@@ -82,22 +78,21 @@ while game_on:
 
         print(f'Computer busts! You win!')
 
-    elif sum(computer_cards) == 21:
-
-        print(f'Computer Blackjack! Computer wins.')
-
     elif sum(computer_cards) == sum(player_cards):
 
         print('It\'s a tie!')
 
-    elif sum(player_cards) > sum(computer_cards) and sum(player_cards) <= 21:
+    elif sum(computer_cards) == 21:
+
+        print(f'Computer Blackjack! Computer wins.')
+
+    elif sum(player_cards) > sum(computer_cards):
 
         print(f'Player has {sum(player_cards)}, Computer has {sum(computer_cards)} - Player wins!')
 
-    elif sum(player_cards) < sum(computer_cards) and sum(computer_cards) <= 21:
+    elif sum(player_cards) < sum(computer_cards):
 
         print(f'Player has {sum(player_cards)}, Computer has {sum(computer_cards)} - Computer wins!')
-
 
     play_again = input('Would you like to play again? y/n').lower()
     if play_again == 'y':
