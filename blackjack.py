@@ -63,13 +63,7 @@ def adjust_for_ace(hand):
         total = sum(hand)
     return total
 
-game_on = True
-while game_on:
-    print(f'Your cards: {[player_card, player_card2]}, current score: {player_card + player_card2}')
-    print(f'Computer\'s first card: {computer_card}')
-
-    hit()
-
+def compare():
     if sum(player_cards) > 21:
 
         print(f'You are at {sum(player_cards)} - Bust! You lose')
@@ -93,6 +87,14 @@ while game_on:
     elif sum(player_cards) < sum(computer_cards):
 
         print(f'Player has {sum(player_cards)}, Computer has {sum(computer_cards)} - Computer wins!')
+
+game_on = True
+while game_on:
+    print(f'Your cards: {[player_card, player_card2]}, current score: {player_card + player_card2}')
+    print(f'Computer\'s first card: {computer_card}')
+
+    hit()
+    compare()
 
     play_again = input('Would you like to play again? y/n').lower()
     if play_again == 'y':
